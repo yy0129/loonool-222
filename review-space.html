@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <title>LOONOOL · 审核空间</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>LOONOOL · 审核空间 Review Space</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">
@@ -13,72 +14,114 @@
       <span class="logo-text">LOONOOL · 审核空间</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="nav-link">首页</a>
-      <a href="my-spaces.html" class="nav-link">我的空间</a>
-      <a href="help.html" class="nav-link">帮助中心</a>
+      <a href="index.html" class="nav-link">首页 Home</a>
+      <a href="my-spaces.html" class="nav-link">我的空间 My Spaces</a>
+      <a href="help.html" class="nav-link">帮助中心 Help</a>
     </nav>
   </div>
 </header>
 
 <main class="review-layout">
-  <!-- 左侧：任务列表 -->
+  <!-- 左侧：任务侧栏 -->
   <aside class="review-panel">
-    <h2>任务列表 Tasks</h2>
-    <button class="btn btn-accent" style="width: 100%; margin-bottom: 8px;">
+    <h2>任务侧栏 Task Sidebar</h2>
+    <button id="btn-upload-images" class="btn btn-accent task-upload-btn">
       上传图片 Add Images（Demo）
     </button>
+    <input id="file-upload-input" type="file" multiple style="display:none" />
+
     <ul class="task-list">
       <li class="task-item active">
-        <span>任务 1 · 首页主图选图</span>
-        <span style="font-size: 12px; color: #10b981;">Final 已选</span>
+        <span>任务1</span>
+        <span style="font-size:12px;color:#10b981;">Final ✅</span>
       </li>
       <li class="task-item">
-        <span>任务 2 · 包装图方向</span>
-        <span style="font-size: 12px; color: #6b7280;">草稿</span>
+        <span>任务2</span>
+        <span style="font-size:12px;color:#6b7280;">草稿</span>
       </li>
     </ul>
+
+    <button id="btn-export" class="btn btn-outline export-btn">
+      导出结果 Export Results（Demo）
+    </button>
   </aside>
 
   <!-- 中间：图片审核 + 讨论 -->
   <section class="review-panel">
     <h2>图片审核区 Image Review</h2>
-    <div class="image-area">
-      当前任务下的候选图片在这里展示（Demo 占位）
+    <div id="image-area-text" class="image-area">
+      将图片拖拽到这里开始审核，或点击左侧「上传图片 Add Images」（Demo 占位）。
     </div>
+    <div id="image-grid" class="image-grid"></div>
 
-    <h3 style="margin: 8px 0 4px;">讨论区 Discussion</h3>
-    <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px; height: 120px; overflow-y: auto; font-size: 13px;">
-      <p style="margin: 0 0 4px; color: #6b7280;">
-        系统：任务 1 已创建，并上传了 3 张候选图片用于首页主图区审核（Demo）。
+    <h3 style="margin:8px 0 4px;">讨论区 Discussion</h3>
+    <div id="discussion-box" class="discussion-box">
+      <p style="margin:0 0 4px;color:#6b7280;">
+        系统：任务1 已创建，并上传了 3 张候选图片用于首页主图区审核（Demo）。
       </p>
-      <p style="margin: 0; color: #4b5563;">
-        你：我更偏向右下角那一张，Logo 更突出一些。
+      <p style="margin:0;color:#4b5563;">
+        你：我更偏向右下角那一张，Logo 更突出一点。
       </p>
     </div>
-    <div style="display: flex; gap: 6px; margin-top: 8px;">
-      <input
-        type="text"
-        id="discussion-input"
-        placeholder="输入你的评论（Demo，不会保存）"
-        style="flex: 1; padding: 6px 8px; border-radius: 6px; border: 1px solid #d1d5db;"
-      />
+    <div class="discussion-input-row">
+      <input id="discussion-input" type="text" placeholder="输入你的评论（Demo，不会保存到后端）" />
       <button id="btn-send" class="btn btn-ghost">发送</button>
     </div>
   </section>
 
-  <!-- 右侧：Evidence -->
+  <!-- 右侧：Evidence & Tools -->
   <aside class="review-panel">
-    <h2>审核依据 Evidence</h2>
+    <h2>审核依据 Evidence & Tools</h2>
+
+    <!-- Summary Card -->
+    <div class="summary-card">
+      <div style="font-weight:600;">任务1 · 首页主图选图</div>
+      <div style="font-size:13px;margin-top:4px;">
+        图片数量：<span id="summary-images">3/6（Demo）</span><br />
+        证据数量：<span id="summary-evidence">1 条</span><br />
+        Final 状态：<span id="summary-final">已选定最终图片</span>
+      </div>
+      <div style="font-size:12px;color:#6b7280;margin-top:4px;">
+        AI 综合建议：推荐以候选图 2 为主视觉方向（Demo 文案）。
+      </div>
+    </div>
+
+    <!-- Evidence List -->
     <div class="evidence-list">
       <div class="evidence-card">
-        <div style="font-weight: 600;">合规风险初筛 · Demo</div>
-        <div style="font-size: 12px; color: #6b7280;">
-          类型：风险 · 由 Demo User 生成 · 2025-12-03
+        <div style="font-weight:600;">合规风险初筛（Demo）</div>
+        <div style="font-size:12px;color:#6b7280;">
+          类型：风险 · 上传者：Demo User · 时间：刚刚
         </div>
-        <!-- 由 JS 绑定：跳转到 evidence-preview.html -->
-        <button id="btn-view-evidence" class="btn btn-outline" style="margin-top: 6px; width: 100%;">
+        <p style="font-size:13px;margin:4px 0 6px;">
+          对主图中的 Logo、产品外观做了基础相似度分析，未发现与高知名度品牌的高危近似。
+        </p>
+        <button id="btn-view-evidence" class="btn btn-outline" style="width:100%;margin-bottom:4px;">
           查看在线预览
         </button>
+      </div>
+    </div>
+
+    <!-- 上传证据 -->
+    <div class="tools-section">
+      <div style="font-weight:600;margin-bottom:4px;">上传证据 Add Evidence</div>
+      <p style="font-size:13px;color:#6b7280;margin:0 0 6px;">
+        支持上传 PDF / 截图 / 链接等（当前为前端 Demo，不做实际上传）。
+      </p>
+      <button class="btn btn-ghost" style="width:100%;">上传证据（Demo 按钮）</button>
+    </div>
+
+    <!-- 分析工具 -->
+    <div class="tools-section">
+      <div style="font-weight:600;">分析工具 Analysis Tools</div>
+      <div style="font-size:13px;color:#6b7280;margin-top:2px;">
+        点击工具 → 生成结构化结果 → 保存为证据（当前为 Demo）。
+      </div>
+      <div class="tools-list">
+        <div class="tool-chip">风险 · 合规初筛</div>
+        <div class="tool-chip">风险 · 商标结构比对</div>
+        <div class="tool-chip">风格 · 品牌一致性</div>
+        <div class="tool-chip">市场 · 类目对标</div>
       </div>
     </div>
   </aside>
