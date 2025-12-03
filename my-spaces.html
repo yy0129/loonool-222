@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>LOONOOL · 我的空间</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>LOONOOL · 我的空间 My Spaces</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">
-      <span class="logo-mark">L</span>
-      <span class="logo-text">LOONOOL · 我的空间</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">首页</a>
-      <a href="help.html" class="nav-link">帮助中心</a>
-      <a href="login.html" class="nav-link">登录</a>
-    </nav>
-  </div>
-</header>
 
-<main class="page-main">
-  <div class="container">
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">L</span>
+        <span class="logo-text">LOONOOL · 我的空间</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">首页 Home</a>
+        <a href="help.html" class="nav-link">帮助中心 Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="spaces-container">
+
+    <!-- 顶部标题 -->
     <h1 class="page-title">我的空间 My Spaces</h1>
-    <p class="page-desc">
-      这里列出你参与的所有图片审核空间。点击「进入空间」进入审核空间页面。
-    </p>
+    <p class="page-desc">以下为你参与的所有审核空间。</p>
 
-    <div class="space-list">
-      <div class="space-card">
-        <div>
-          <div class="space-name">2025 春季主图审核空间</div>
-          <div class="space-meta">
-            创建者：Demo Owner · 任务数：3 · 最近更新：2025-12-03
-          </div>
-        </div>
-        <!-- 所有 .btn-enter-space 按钮由 JS 绑定跳转到 review-space.html -->
-        <button class="btn btn-outline btn-enter-space">进入空间</button>
-      </div>
+    <!-- Space 列表 -->
+    <div class="spaces-list">
 
+      <!-- Space 1 -->
       <div class="space-card">
-        <div>
-          <div class="space-name">包装升级 V2 图片审核空间</div>
+        <div class="space-info">
+          <div class="space-name space-click">主图审核空间（2025-Q1）</div>
           <div class="space-meta">
-            创建者：Brand Team · 任务数：2 · 最近更新：2025-11-28
+            创建者：Alice · 任务数：3 · 最近更新：2 天前 · 状态：活跃
           </div>
         </div>
         <button class="btn btn-outline btn-enter-space">进入空间</button>
       </div>
+
+      <!-- Space 2 -->
+      <div class="space-card">
+        <div class="space-info">
+          <div class="space-name space-click">包装图审核空间</div>
+          <div class="space-meta">
+            创建者：Design Team · 任务数：5 · 最近更新：5 小时前 · 状态：活跃
+          </div>
+        </div>
+        <button class="btn btn-outline btn-enter-space">进入空间</button>
+      </div>
+
+      <!-- Space 3 -->
+      <div class="space-card">
+        <div class="space-info">
+          <div class="space-name space-click">广告图审核空间</div>
+          <div class="space-meta">
+            创建者：Marketing · 任务数：2 · 最近更新：1 天前 · 状态：已归档
+          </div>
+        </div>
+        <button class="btn btn-outline btn-enter-space">进入空间</button>
+      </div>
+
     </div>
-  </div>
-</main>
+  </main>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
