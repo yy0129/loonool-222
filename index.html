@@ -2,19 +2,51 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>LOONOOL · 首页</title>
+  <title>LOONOOL · 图片审核空间</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+<!-- 顶部导航栏 -->
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">
       <span class="logo-mark">L</span>
       <span class="logo-text">LOONOOL · 图片审核空间</span>
     </div>
+
     <nav class="nav-links">
-      <a href="help.html" class="nav-link">帮助中心</a>
-      <a href="login.html" class="nav-link">登录</a>
+      <a href="login.html" class="nav-link">登录 Login</a>
+      <a href="login.html" class="nav-link">注册 Sign Up</a>
+      <a href="help.html" class="nav-link">帮助中心 Help</a>
     </nav>
   </div>
 </header>
+
+<!-- 主视觉区域 -->
+<main class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">
+      用 LOONOOL 审核你的图片，做出可放心使用的视觉决策。
+    </h1>
+
+    <p class="hero-subtitle">
+      上传图片 · 团队一起看 · AI 提供证据 · 一张图被确认可用。
+    </p>
+
+    <div class="hero-actions">
+      <!-- ⭐ 主按钮（未登录跳登录，登录后跳审核空间） -->
+      <button id="btn-create-space" class="btn btn-accent">
+        创建图片审核空间 Create Review Space
+      </button>
+    </div>
+
+    <p class="hero-hint">
+      未登录将跳转到登录/注册；登录后将进入审核空间。
+    </p>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
