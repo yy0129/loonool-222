@@ -1,12 +1,25 @@
+// main.js —— LOONOOL 全局跳转逻辑（最终版）
+
 document.addEventListener("DOMContentLoaded", () => {
   const $ = (id) => document.getElementById(id);
   const go = (url) => (window.location.href = url);
 
-  // 首页：创建空间 / 进入我的空间
+  // 读取登录状态（登录后保存到 localStorage）
+  let isLoggedIn = localStorage.getItem("loonool_logged_in") === "true";
+
+  /* ----------------------------------------
+   * 首页 index.html
+   * ---------------------------------------- */
   const btnCreate = $("btn-create-space");
   if (btnCreate) {
     btnCreate.addEventListener("click", () => {
-      go("my-spaces.html");
+      if (!isLoggedIn) {
+        // 未登录 → 登录/注册
+        go("login.html");
+      } else {
+        // 已登录 → 审核空间（空状态）
+        go("review-space.html");
+      }
     });
   }
 
@@ -17,7 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 我的空间：进入空间按钮（可能有多个）
+  /* ----------------------------------------
+   * 我的空间 my-spaces.html
+   * ---------------------------------------- */
   const enterButtons = document.querySelectorAll(".btn-enter-space");
   if (enterButtons.length) {
     enterButtons.forEach((btn) => {
@@ -27,7 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 审核空间：查看在线预览
+  /* ----------------------------------------
+   * 审核空间 review-space.html
+   * ---------------------------------------- */
   const btnViewEvidence = $("btn-view-evidence");
   if (btnViewEvidence) {
     btnViewEvidence.addEventListener("click", () => {
@@ -35,7 +52,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Evidence 预览：去登录 / 回首页
+  // 讨论输入（Demo）
+  const btnSend = $("btn-send");
+  const discussionInput = $("discussion-input");
+  if (btnSend && discussionInput) {
+    btnSend.addEventListener("click", () => {
+      if (!discussionInput.value.trim()) return;
+      alert(
+        "Demo：评论不会被保存。\n你输入的是：\n" +
+          discussionInput.value
+      );
+      discussionInput.value = "";
+    });
+  }
+
+  /* ----------------------------------------
+   * 证据预览 evidence-preview.html
+   * ---------------------------------------- */
   const btnEpLogin = $("btn-ep-login");
   if (btnEpLogin) {
     btnEpLogin.addEventListener("click", () => {
@@ -50,14 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 登录页：模拟登录 → 我的空间；返回首页
+  /* ----------------------------------------
+   * 登录 login.html
+   * ---------------------------------------- */
   const btnLogin = $("btn-login");
   if (btnLogin) {
     btnLogin.addEventListener("click", () => {
-      const email = ($("login-email")?.value || "Demo User").trim();
-      alert(
-        `模拟登录成功：${email}\n\n实际项目中，这里会调用后端接口。`
-      );
+      // 保存登录状态
+      localStorage.setItem("loonool_logged_in", "true");
+      alert("登录成功！（模拟登录）");
       go("my-spaces.html");
     });
   }
@@ -69,7 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 404 页：返回首页 / 进入我的空间
+  /* ----------------------------------------
+   * 404 页面
+   * ---------------------------------------- */
   const btn404Home = $("btn-404-home");
   if (btn404Home) {
     btn404Home.addEventListener("click", () => {
@@ -81,20 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btn404MySpaces) {
     btn404MySpaces.addEventListener("click", () => {
       go("my-spaces.html");
-    });
-  }
-
-  // 审核空间：讨论输入只是 Demo 提示
-  const btnSend = $("btn-send");
-  const discussionInput = $("discussion-input");
-  if (btnSend && discussionInput) {
-    btnSend.addEventListener("click", () => {
-      if (!discussionInput.value.trim()) return;
-      alert(
-        "Demo：这里只是示意，评论没有真正保存。\n\n你输入的内容是：\n" +
-          discussionInput.value
-      );
-      discussionInput.value = "";
     });
   }
 });
