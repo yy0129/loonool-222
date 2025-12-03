@@ -380,4 +380,161 @@ body {
   font-size: 13px;
 }
 
-.to
+.tools-section {
+  margin-top: 10px;
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 8px;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tool-chip {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #f9fafb;
+}
+
+.tool-chip:hover {
+  background: #eff6ff;
+}
+
+/* ========== 帮助中心 ========== */
+.faq-container {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+}
+
+.faq-q {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.faq-a {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* ========== 登录 / 注册 ========== */
+.auth-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.auth-card {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 18px 16px 20px;
+}
+
+.auth-title {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.auth-form {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form label {
+  font-size: 14px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+/* ========== Evidence Preview ========== */
+.evidence-container {
+  max-width: 780px;
+  margin: 32px auto;
+  padding: 0 16px 40px;
+}
+
+.evidence-block {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 12px 14px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.evidence-cta {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ========== 404 ========== */
+.error-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 24px 28px;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 900px) {
+  .review-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner,
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .space-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
