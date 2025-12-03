@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>LOONOOL · 审核空间</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-mark">L</span>
+      <span class="logo-text">LOONOOL · 审核空间</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="my-spaces.html" class="nav-link">我的空间</a>
+      <a href="help.html" class="nav-link">帮助中心</a>
+    </nav>
+  </div>
+</header>
+
+<main class="review-layout">
+  <!-- 左侧：任务列表 -->
+  <aside class="review-panel">
+    <h2>任务列表 Tasks</h2>
+    <button class="btn btn-accent" style="width: 100%; margin-bottom: 8px;">
+      上传图片 Add Images（Demo）
+    </button>
+    <ul class="task-list">
+      <li class="task-item active">
+        <span>任务 1 · 首页主图选图</span>
+        <span style="font-size: 12px; color: #10b981;">Final 已选</span>
+      </li>
+      <li class="task-item">
+        <span>任务 2 · 包装图方向</span>
+        <span style="font-size: 12px; color: #6b7280;">草稿</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- 中间：图片审核 + 讨论 -->
+  <section class="review-panel">
+    <h2>图片审核区 Image Review</h2>
+    <div class="image-area">
+      当前任务下的候选图片在这里展示（Demo 占位）
+    </div>
+
+    <h3 style="margin: 8px 0 4px;">讨论区 Discussion</h3>
+    <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px; height: 120px; overflow-y: auto; font-size: 13px;">
+      <p style="margin: 0 0 4px; color: #6b7280;">
+        系统：任务 1 已创建，并上传了 3 张候选图片用于首页主图区审核（Demo）。
+      </p>
+      <p style="margin: 0; color: #4b5563;">
+        你：我更偏向右下角那一张，Logo 更突出一些。
+      </p>
+    </div>
+    <div style="display: flex; gap: 6px; margin-top: 8px;">
+      <input
+        type="text"
+        id="discussion-input"
+        placeholder="输入你的评论（Demo，不会保存）"
+        style="flex: 1; padding: 6px 8px; border-radius: 6px; border: 1px solid #d1d5db;"
+      />
+      <button id="btn-send" class="btn btn-ghost">发送</button>
+    </div>
+  </section>
+
+  <!-- 右侧：Evidence -->
+  <aside class="review-panel">
+    <h2>审核依据 Evidence</h2>
+    <div class="evidence-list">
+      <div class="evidence-card">
+        <div style="font-weight: 600;">合规风险初筛 · Demo</div>
+        <div style="font-size: 12px; color: #6b7280;">
+          类型：风险 · 由 Demo User 生成 · 2025-12-03
+        </div>
+        <!-- 由 JS 绑定：跳转到 evidence-preview.html -->
+        <button id="btn-view-evidence" class="btn btn-outline" style="margin-top: 6px; width: 100%;">
+          查看在线预览
+        </button>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
