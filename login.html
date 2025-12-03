@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>LOONOOL · 登录</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-mark">L</span>
+      <span class="logo-text">LOONOOL · 登录</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="help.html" class="nav-link">帮助中心</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-main">
+  <div class="auth-card">
+    <h1 class="auth-title">登录 / 注册</h1>
+    <p class="page-desc">
+      当前是静态 Demo，不会真的校验账号密码。点击「模拟登录并进入我的空间」即可体验页面跳转流程。
+    </p>
+
+    <form class="auth-form" onsubmit="return false;">
+      <label>
+        邮箱（Email）
+        <input type="email" id="login-email" placeholder="you@example.com" />
+      </label>
+      <label>
+        密码（Password）
+        <input type="password" id="login-password" placeholder="••••••••" />
+      </label>
+      <div style="display: flex; gap: 8px; margin-top: 4px;">
+        <button type="button" id="btn-login" class="btn btn-accent">
+          模拟登录并进入我的空间
+        </button>
+        <button type="button" id="btn-back-home" class="btn btn-ghost">
+          返回首页
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
