@@ -1,164 +1,62 @@
-/* ------- 基础 ------- */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background: #f3f4f6;
-  color: #111827;
-}
-
-/* ------- 顶部导航 ------- */
-.site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.header-inner {
+/* ------- My Spaces 页面 ------- */
+.spaces-container {
   max-width: 960px;
-  margin: 0 auto;
-  padding: 12px 16px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.page-desc {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.spaces-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.space-card {
+  background: #ffffff;
+  padding: 18px 20px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-mark {
-  background: #111827;
-  color: #f9fafb;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.logo-text {
-  font-size: 14px;
-  color: #374151;
-}
-
-.nav-links {
-  display: flex;
-  gap: 14px;
-}
-
-.nav-link {
-  color: #4b5563;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.nav-link:hover {
-  color: #111827;
-}
-
-/* ------- 主视觉 ------- */
-.hero {
-  padding: 80px 16px 40px;
-  text-align: center;
-}
-
-.hero-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.hero-title {
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.hero-subtitle {
+.space-name {
   font-size: 18px;
-  color: #4b5563;
-  margin-bottom: 30px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  cursor: pointer;
 }
 
-.hero-actions {
-  margin-bottom: 12px;
+.space-name:hover {
+  text-decoration: underline;
 }
 
-.hero-hint {
-  margin-top: 8px;
-  font-size: 13px;
+.space-meta {
+  font-size: 14px;
   color: #6b7280;
 }
 
-/* ------- 按钮 ------- */
-.btn {
-  padding: 12px 22px;
+.btn-outline {
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  background: transparent;
+  padding: 8px 18px;
   border-radius: 999px;
-  font-size: 16px;
   cursor: pointer;
-  border: none;
 }
 
-.btn-accent {
-  background: #3b82f6;
-  color: #ffffff;
-}
-
-.btn-accent:hover {
-  background: #2563eb;
-}
-
-/* ------- 功能简介 ------- */
-.features {
-  background: #ffffff;
-  padding: 60px 16px;
-  margin-top: 40px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.features-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.features-title {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.features-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.features-list li {
-  margin: 8px 0;
-  font-size: 16px;
-  color: #374151;
-}
-
-/* ------- 页脚 ------- */
-.footer {
-  background: #111827;
-  padding: 20px 16px;
-  margin-top: 60px;
-}
-
-.footer-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  gap: 24px;
-}
-
-.footer-inner a {
-  color: #d1d5db;
-  text-decoration: none;
-}
-
-.footer-inner a:hover {
-  color: #ffffff;
+.btn-outline:hover {
+  background: #3b82f61a;
 }
