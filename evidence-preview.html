@@ -1,66 +1,81 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>LOONOOL · Evidence Preview</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Evidence Preview · LOONOOL 图片审核空间</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 顶部导航（和其他页统一） -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="logo"></div>
+        <span class="brand-text">LOONOOL · 图片审核空间</span>
+      </div>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">
-      <span class="logo-mark">L</span>
-      <span class="logo-text">LOONOOL · Evidence Preview</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">首页 Home</a>
-      <a href="help.html" class="nav-link">帮助中心 Help</a>
-    </nav>
-  </div>
-</header>
+      <nav class="nav-right">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="my-spaces.html" class="nav-link">My Spaces</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="help.html" class="nav-link">Help</a>
+      </nav>
+    </header>
 
-<main class="evidence-container">
-  <h1 class="page-title">证据预览：Logo 相似度与可用性分析（Demo）</h1>
-  <p class="page-desc">
-    所属空间：主图审核空间（2025-Q1） · Task：首页主图选图 · 上传者：Demo User · 时间：2025-12-03
-  </p>
+    <!-- Evidence Preview 主体 -->
+    <main class="preview-layout">
+      <section class="preview-main">
+        <!-- 顶部标题 + Meta -->
+        <header class="preview-header">
+          <h1 id="previewTitle" class="preview-title">Evidence 标题占位</h1>
+          <p id="previewMeta" class="preview-meta">
+            <!-- 例：所属空间 / 任务 · 上传者 · 时间 -->
+          </p>
+        </header>
 
-  <div class="evidence-block">
-    <h3>分析摘要</h3>
-    <p>
-      本证据由 AI 工具【合规风险初筛】生成，基于公开商标数据与图形特征，对当前候选主图的 Logo 进行了结构化比对。
-    </p>
-  </div>
+        <!-- Evidence 内容展示卡片 -->
+        <section class="preview-card">
+          <h2 class="preview-section-title">Evidence 内容</h2>
+          <div id="previewContent" class="preview-content">
+            <!-- 这里由 JS 填充：分析结果 / 文本 / 假图等 -->
+          </div>
+        </section>
+      </section>
 
-  <div class="evidence-block">
-    <h3>结构化结果（示意）</h3>
-    <ul>
-      <li>整体相似度：中等偏低，暂未发现与头部品牌高度相似的构图。</li>
-      <li>关键视觉要素：字形结构差异较为明显；图形部分无直观抄袭痕迹。</li>
-      <li>高风险元素：当前版本未检测到需立即替换的高危元素。</li>
-      <li>建议：正式投放前，建议配合法务或商标代理完成一次正式检索。</li>
-    </ul>
-  </div>
+      <!-- 右侧 CTA 区域 -->
+      <aside class="preview-aside">
+        <section class="preview-cta-card">
+          <h3 class="preview-cta-title">想看完整证据链？</h3>
+          <p class="preview-cta-text">
+            当前页只展示单条 Evidence。想查看同一个任务下的全部证据链，请回到任务页面。
+          </p>
+          <button id="goToTaskBtn" class="btn-primary btn-full">
+            返回任务 · 查看完整证据链
+          </button>
+          <p class="preview-cta-note">
+            点击后会跳转回对应的 Review Space（需登录后才能访问）。
+          </p>
+        </section>
 
-  <div class="evidence-block">
-    <h3>使用说明</h3>
-    <p>
-      本页面为单条 Evidence 的只读预览，无法修改内容。<br />
-      如需查看完整任务的证据链和讨论记录，请登录 LOONOOL 并进入对应审核空间。
-    </p>
-  </div>
+        <section class="preview-cta-card">
+          <h3 class="preview-cta-title">也想审核你的图片？</h3>
+          <p class="preview-cta-text">
+            创建一个属于你和团队的图片审核空间，集中管理任务、证据和 AI 分析结果。
+          </p>
+          <a href="index.html" class="btn-secondary btn-full" id="createSpaceFromPreview">
+            创建你的图片审核空间
+          </a>
+        </section>
+      </aside>
+    </main>
 
-  <div class="evidence-cta">
-    <button id="btn-ep-login" class="btn btn-accent">
-      登录查看完整证据链
-    </button>
-    <button id="btn-ep-home" class="btn btn-outline">
-      我也想审核我的图片
-    </button>
-  </div>
-</main>
+    <!-- 底部 Footer -->
+    <footer class="footer">
+      <a href="help.html">帮助中心</a>
+      <a href="#">隐私政策</a>
+      <a href="#">服务条款</a>
+      <a href="#">联系我们</a>
+    </footer>
 
-<script src="js/main.js"></script>
-</body>
+    <script src="evidence-preview.js"></script>
+  </body>
 </html>
