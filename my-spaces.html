@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>LOONOOL · 我的空间</title>
+  <title>LOONOOL · 我的空间 My Spaces</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -24,43 +24,19 @@
   <div class="spaces-container">
     <h1 class="page-title">我的空间 My Spaces</h1>
     <p class="page-desc">
-      列出你参与的所有审核空间，点击空间名称或「进入空间」进入 Review Space（Demo）。
+      从 Supabase 中读取你作为 Owner 创建的所有图片审核空间。点击空间名称或「进入空间」进入 Review Space。
     </p>
 
-    <div class="spaces-list">
-      <div class="space-card">
-        <div class="space-info">
-          <div class="space-name space-click">主图审核空间（2025-Q1）</div>
-          <div class="space-meta">
-            创建者：Alice · 任务数：3 · 最近更新时间：2 天前 · 状态：活跃
-          </div>
-        </div>
-        <button class="btn btn-outline btn-enter-space">进入空间</button>
-      </div>
+    <!-- JS 会把 Space 列表插入到这里 -->
+    <div id="spaces-list" class="spaces-list"></div>
 
-      <div class="space-card">
-        <div class="space-info">
-          <div class="space-name space-click">包装图审核空间</div>
-          <div class="space-meta">
-            创建者：Design Team · 任务数：5 · 最近更新时间：5 小时前 · 状态：活跃
-          </div>
-        </div>
-        <button class="btn btn-outline btn-enter-space">进入空间</button>
-      </div>
-
-      <div class="space-card">
-        <div class="space-info">
-          <div class="space-name space-click">广告图审核空间</div>
-          <div class="space-meta">
-            创建者：Marketing · 任务数：2 · 最近更新时间：1 天前 · 状态：已归档
-          </div>
-        </div>
-        <button class="btn btn-outline btn-enter-space">进入空间</button>
-      </div>
+    <!-- 空状态 -->
+    <div id="spaces-empty" class="empty-state" style="display:none;margin-top:24px;">
+      你还没有任何审核空间，可以先回到首页创建第一个图片审核空间。
     </div>
   </div>
 </main>
 
-<script src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
