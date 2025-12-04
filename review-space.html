@@ -1,146 +1,247 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>LOONOOL · 审核空间 Review Space</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">
-      <span class="logo-mark">L</span>
-      <span class="logo-text">LOONOOL · 审核空间</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">首页 Home</a>
-      <a href="my-spaces.html" class="nav-link">我的空间 My Spaces</a>
-      <a href="help.html" class="nav-link">帮助中心 Help</a>
-    </nav>
-  </div>
-</header>
-
-<main class="review-layout">
-  <!-- 左列：Task Sidebar -->
-  <aside class="review-panel">
-    <h2>任务 Task Sidebar</h2>
-    <button id="btn-upload-images" class="btn btn-accent task-upload-btn">
-      + 上传图片 Add Images
-    </button>
-    <input id="file-upload-input" type="file" multiple style="display:none" />
-
-    <ul class="task-list">
-      <li class="task-item active" data-task-id="1">
-        <span>任务1 · 主图选图</span>
-        <span style="font-size:12px;color:#10b981;">Final ✅</span>
-      </li>
-      <li class="task-item" data-task-id="2">
-        <span>任务2 · 包装图审核</span>
-        <span style="font-size:12px;color:#6b7280;">草稿</span>
-      </li>
-    </ul>
-
-    <button id="btn-export" class="btn btn-outline export-btn">
-      导出结果 Export Results（UI 示意）
-    </button>
-  </aside>
-
-  <!-- 中列：Image Review + Discussion -->
-  <section class="review-panel">
-    <h2>Image Review · <span id="current-task-title">任务1 · 主图选图</span></h2>
-
-    <!-- 空状态大卡片 -->
-    <div id="image-area-text" class="image-area">
-      将图片拖拽到这里开始审核，或点击左侧「上传图片 Add Images」。
-    </div>
-
-    <!-- 未来可以在这里做图片网格 -->
-    <div id="image-grid" class="image-grid"></div>
-
-    <!-- Discussion 区 -->
-    <div class="discussion-header">
-      <h3 style="margin:0;">Discussion · 讨论区</h3>
-      <button class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">
-        Invite Members
-      </button>
-    </div>
-
-    <div id="discussion-box" class="discussion-box">
-      <p style="margin:0 0 4px;color:#6b7280;">
-        系统：任务1 已创建，并上传了 3 张候选图片用于首页主图区审核。（示例系统消息）
-      </p>
-      <p style="margin:0;color:#4b5563;">
-        用户A：我更偏向右下角那张，Logo 更清晰。（示例用户消息）
-      </p>
-    </div>
-
-    <div class="discussion-input-row">
-      <input id="discussion-input" type="text" placeholder="输入你的评论（仅 UI 示意，不保存）" />
-      <button id="btn-send" class="btn btn-ghost">发送</button>
-    </div>
-  </section>
-
-  <!-- 右列：Evidence & Tools -->
-  <aside class="review-panel">
-    <h2>Evidence & Tools</h2>
-
-    <!-- Summary Card -->
-    <div class="summary-card">
-      <div style="font-weight:600;">
-        Summary · <span id="summary-task-title">任务1 · 主图选图</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>审核空间 Review Space · LOONOOL 图片审核空间</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 顶部导航 -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="logo"></div>
+        <span class="brand-text">LOONOOL · 图片审核空间</span>
       </div>
-      <div style="font-size:13px;margin-top:4px;">
-        图片数量：<span id="summary-images">0/6（UI 示意）</span><br/>
-        证据数量：<span id="summary-evidence">0 条（UI 示意）</span><br/>
-        Final 状态：<span id="summary-final">尚未选定 Final</span>
-      </div>
-      <div style="font-size:12px;color:#6b7280;margin-top:4px;">
-        AI 综合建议区域：这里会展示对当前任务的综合建议（UI 文案示意）。
-      </div>
-    </div>
 
-    <!-- Evidence 列表（假数据） -->
-    <div class="evidence-list">
-      <div class="evidence-card">
-        <div style="font-weight:600;">合规风险初筛（示例）</div>
-        <div style="font-size:12px;color:#6b7280;">
-          类型：风险 · 时间：刚刚
+      <nav class="nav-right">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="my-spaces.html" class="nav-link">My Spaces</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="help.html" class="nav-link">Help</a>
+      </nav>
+    </header>
+
+    <!-- 整体三列布局 -->
+    <main class="review-layout">
+      <!-- ========== 左列：Task Sidebar ========== -->
+      <aside class="review-sidebar">
+        <!-- Add Images -->
+        <section class="sidebar-section">
+          <div class="sidebar-section-header">
+            <h2 class="sidebar-title">Add Images</h2>
+          </div>
+          <button id="addImagesBtn" class="btn-primary btn-full">
+            ＋ 上传图片
+          </button>
+          <p class="sidebar-hint">
+            支持选择多张图片。首张图片会创建任务 1 并激活审核空间。
+          </p>
+        </section>
+
+        <!-- Task List -->
+        <section class="sidebar-section">
+          <div class="sidebar-section-header">
+            <h2 class="sidebar-title">Task List</h2>
+          </div>
+          <ul id="taskList" class="task-list">
+            <!-- JS 渲染：任务一行一行 -->
+          </ul>
+          <p class="sidebar-hint">
+            每个任务最多 6 张图片，第 7 张会自动进入下一个任务。
+          </p>
+        </section>
+
+        <!-- Export Results：底部主按钮 -->
+        <section class="sidebar-section sidebar-section-bottom">
+          <div class="sidebar-section-header">
+            <h2 class="sidebar-title">Export Results</h2>
+          </div>
+          <button id="exportBtn" class="btn-primary btn-full">
+            导出结果（Final 图片）
+          </button>
+          <p class="sidebar-hint">
+            导出当前空间所有任务的 Final 图片，每个 Task 一个文件夹。
+          </p>
+        </section>
+      </aside>
+
+      <!-- ========== 中列：Image Review + Discussion ========== -->
+      <section class="review-main">
+        <!-- Image Review UI -->
+        <section class="review-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">图片审核区 Image Review</h2>
+            <span id="currentTaskLabel" class="panel-tag">当前：任务 1</span>
+          </div>
+
+          <!-- 空状态卡片 -->
+          <div id="imageEmptyState" class="image-empty-state">
+            <div class="image-empty-dropzone">
+              <p class="image-empty-title">将图片拖拽到这里开始审核</p>
+              <p class="image-empty-subtitle">
+                或点击左侧上传图片 Add Images，系统会自动创建任务 1。
+              </p>
+            </div>
+          </div>
+
+          <!-- 有图片时的网格（1 张大图 / 2–6 自适应网格） -->
+          <div id="imageGrid" class="image-grid" style="display: none;">
+            <!-- JS 渲染图片卡片 -->
+          </div>
+        </section>
+
+        <!-- Discussion UI -->
+        <section class="review-panel discussion-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">讨论区 Discussion</h2>
+            <button id="inviteBtn" class="btn-secondary">
+              邀请成员 Invite Members
+            </button>
+          </div>
+
+          <div id="discussionMessages" class="discussion-messages">
+            <!-- JS 渲染：系统消息 + 用户消息 -->
+          </div>
+
+          <form id="discussionForm" class="discussion-input">
+            <input
+              type="text"
+              id="discussionInput"
+              placeholder="输入讨论内容，可 @成员…"
+            />
+            <button type="submit" class="btn-primary">发送</button>
+          </form>
+        </section>
+      </section>
+
+      <!-- ========== 右列：Evidence & Tools ========== -->
+      <aside class="review-right">
+        <!-- Evidence Summary -->
+        <section class="right-section">
+          <h2 class="right-title">审核依据 Evidence</h2>
+          <div id="evidenceSummary" class="summary-card">
+            <!-- JS 填充 Summary 假文案 -->
+          </div>
+        </section>
+
+        <!-- Evidence List -->
+        <section class="right-section">
+          <h3 class="right-subtitle">Evidence List</h3>
+          <div id="evidenceList" class="evidence-list">
+            <!-- JS 渲染：Evidence 卡片 -->
+          </div>
+        </section>
+
+        <!-- Add Evidence 区 -->
+        <section class="right-section">
+          <h3 class="right-subtitle">上传证据 Add Evidence</h3>
+          <div class="add-evidence">
+            <button class="btn-secondary btn-small">
+              上传图片（证据）
+            </button>
+            <button class="btn-secondary btn-small">上传文件（PDF / Doc）</button>
+            <button class="btn-secondary btn-small">添加外部链接</button>
+            <p class="sidebar-hint">
+              上传内容作为正式证据进入 Evidence List，不作为候选图片。
+            </p>
+          </div>
+        </section>
+
+        <!-- Analysis Tools 区 -->
+        <section class="right-section">
+          <h3 class="right-subtitle">分析工具 Analysis Tools</h3>
+
+          <!-- 风险工具 -->
+          <div class="tools-group">
+            <div class="tools-group-title">风险工具 Risk Tools</div>
+
+            <div class="tool-row tool-btn">
+              <div class="tool-icon">⚠️</div>
+              <div class="tool-text">
+                <div class="tool-name">图形相似度初筛</div>
+                <div class="tool-desc">
+                  对候选图片进行图形相似度检测，发现潜在冲突图形。
+                </div>
+              </div>
+            </div>
+
+            <div class="tool-row tool-btn">
+              <div class="tool-icon">🧾</div>
+              <div class="tool-text">
+                <div class="tool-name">潜在侵权风险提示</div>
+                <div class="tool-desc">
+                  汇总相似图与证据，给出初步风险提示。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 风格工具 -->
+          <div class="tools-group">
+            <div class="tools-group-title">风格工具 Style Tools</div>
+
+            <div class="tool-row tool-btn">
+              <div class="tool-icon">🎨</div>
+              <div class="tool-text">
+                <div class="tool-name">视觉风格对比</div>
+                <div class="tool-desc">
+                  对比同一任务中不同方案的视觉风格差异。
+                </div>
+              </div>
+            </div>
+
+            <div class="tool-row tool-btn">
+              <div class="tool-icon">🧩</div>
+              <div class="tool-text">
+                <div class="tool-name">品牌统一性检查</div>
+                <div class="tool-desc">
+                  检查颜色、字体、Logo 使用是否符合品牌规范。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 市场工具 -->
+          <div class="tools-group">
+            <div class="tools-group-title">市场工具 Market Tools</div>
+
+            <div class="tool-row tool-btn">
+              <div class="tool-icon">📊</div>
+              <div class="tool-text">
+                <div class="tool-name">同类产品视觉扫描</div>
+                <div class="tool-desc">
+                  在公开素材中扫描与当前方案相似的市场视觉。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="sidebar-hint">
+            点击工具将对当前任务图片执行 AI 分析，结果可保存为 Evidence。
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="help.html">帮助中心</a>
+      <a href="#">隐私政策</a>
+      <a href="#">服务条款</a>
+      <a href="#">联系我们</a>
+    </footer>
+
+    <!-- 图片预览 Modal（假图） -->
+    <div id="imageModal" class="image-modal">
+      <div class="image-modal-backdrop"></div>
+      <div class="image-modal-content">
+        <button id="imageModalClose" class="image-modal-close">×</button>
+        <div id="imageModalBody" class="image-modal-body">
+          <!-- JS 填充：假图 + 名称 -->
         </div>
-        <p style="font-size:13px;margin:4px 0 6px;">
-          对主图中 Logo 及产品外观进行初步相似度分析，未发现显著高危相似。
-        </p>
-        <button class="btn btn-outline" style="width:100%;font-size:13px;">
-          查看详情（UI 按钮）
-        </button>
       </div>
     </div>
 
-    <!-- Add Evidence 区 -->
-    <div class="tools-section">
-      <div style="font-weight:600;margin-bottom:4px;">Add Evidence · 上传证据</div>
-      <p style="font-size:13px;color:#6b7280;margin:0 0 6px;">
-        在这里上传 PDF、截图、链接等作为审核依据（当前为 UI，不做真实上传）。
-      </p>
-      <button class="btn btn-ghost" style="width:100%;">上传证据（UI 按钮）</button>
-    </div>
-
-    <!-- Analysis Tools 区 -->
-    <div class="tools-section">
-      <div style="font-weight:600;">Analysis Tools</div>
-      <div style="font-size:13px;color:#6b7280;margin-top:2px;">
-        分为风险 / 风格 / 市场三类工具，点击后生成结构化结果并可保存为 Evidence（UI 示意）。
-      </div>
-      <div class="tools-list">
-        <div class="tool-line">风险 · 合规初筛</div>
-        <div class="tool-line">风险 · 图形商标近似度观察</div>
-        <div class="tool-line">风格 · 品牌一致性检查</div>
-        <div class="tool-line">市场 · 类目主流风格对比</div>
-      </div>
-    </div>
-  </aside>
-</main>
-
-<script type="module" src="js/main.js"></script>
-</body>
+    <script src="review-space.js"></script>
+  </body>
 </html>
