@@ -492,7 +492,7 @@ img {
 }
 
 /* =========================
-   Help Center
+   Help Center（折叠版 FAQ）
    ========================= */
 
 .help-layout {
@@ -539,29 +539,87 @@ img {
   color: #4b5563;
 }
 
+/* FAQ 折叠区域 */
+
 .help-faq-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .help-faq-item {
-  padding: 14px 16px;
   border-radius: 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+
+/* 问题头部（可点击） */
+.help-faq-header {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.help-faq-header:hover {
+  background: #f9fafb;
 }
 
 .help-faq-question {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 4px;
+  color: #111827;
+  text-align: left;
 }
 
+.help-faq-toggle-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #6b7280;
+  transition: all 0.15s ease;
+}
+
+/* 答案折叠区域 */
 .help-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 14px;
+  border-top: 1px solid transparent;
+  transition: max-height 0.22s ease, padding 0.18s ease, border-top 0.18s ease;
+}
+
+.help-faq-answer-inner {
+  padding: 8px 0 10px 0;
   font-size: 13px;
   color: #4b5563;
   line-height: 1.6;
+}
+
+/* 打开状态 */
+.help-faq-item.open .help-faq-answer {
+  max-height: 260px;
+  padding: 6px 14px 10px 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.help-faq-item.open .help-faq-toggle-icon {
+  background: #111827;
+  color: #f9fafb;
+  border-color: #111827;
+  transform: rotate(90deg);
 }
 
 /* =========================
