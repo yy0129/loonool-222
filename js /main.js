@@ -3,9 +3,14 @@
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-// TODO：这里换成你自己的 Supabase 项目配置
-const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";      // ← 替换
-const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";                    // ← 替换
+/**
+ * TODO：这里换成你自己的 Supabase 项目配置
+ * 在 Supabase 控制台 Settings → API 里可以找到：
+ *  - Project URL
+ *  - anon public
+ */
+const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"; // ← 替换
+const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";               // ← 替换
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -38,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================
  * 1. 首页 Home：创建图片审核空间
  * ========================= */
-// 要求 index.html 里有：
+// index.html 需要有：
 // <button id="btn-create-space">创建图片审核空间</button>
 function initHome() {
   const btn = document.getElementById("btn-create-space");
@@ -110,7 +115,7 @@ function initHome() {
 /* =========================
  * 2. 登录 / 注册页面：Supabase Auth
  * ========================= */
-// 要求 login.html 里有：
+// login.html 需要有：
 //  input#auth-email, input#auth-password
 //  div#auth-error
 //  button#btn-login, button#btn-signup
@@ -186,7 +191,7 @@ function initAuthPage() {
 /* =========================
  * 3. My Spaces：从 Supabase 读取 Space 列表
  * ========================= */
-// 要求 my-spaces.html 里有：
+// my-spaces.html 需要有：
 //  <div id="spaces-list"></div>
 //  <div id="spaces-empty" style="display:none;">空状态文案...</div>
 async function initMySpaces() {
@@ -279,14 +284,14 @@ async function initMySpaces() {
 /* =========================
  * 4. Review Space：上传按钮 + Task 切换（UI 版）
  * ========================= */
-// 要求 review-space.html 里有：
+// review-space.html 需要有：
 //
-// 上传相关：
+// 上传：
 //  <button id="btn-upload-images">…</button>
 //  <input id="file-upload-input" type="file" multiple style="display:none" />
 //  <div id="image-area-text"></div>
 //
-// 任务相关：
+// 任务：
 //  <li class="task-item active"><span>任务1 …</span></li>
 //  <span id="current-task-title">任务1…</span>
 //  <span id="summary-task-title">任务1…</span>
@@ -342,7 +347,7 @@ function initReviewSpace() {
 /* =========================
  * 5. 404 页面：按钮跳转
  * ========================= */
-// 要求 404.html 里有：
+// 404.html 需要有：
 //  button#btn-404-home, button#btn-404-myspaces
 function init404Page() {
   const btn404Home = document.getElementById("btn-404-home");
