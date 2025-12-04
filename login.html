@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <title>登录 · LOONOOL 图片审核空间</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 确保路径正确：css/styles.css -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- 顶部导航 -->
     <header class="site-header">
       <div class="site-header-inner">
         <div class="nav-logo">
@@ -23,49 +25,60 @@
       </div>
     </header>
 
+    <!-- 登录页主体 -->
     <main class="auth-page">
       <div class="auth-card">
-        <h1 class="auth-title">登录 / 注册</h1>
+        <h1 class="auth-title">登录 LOONOOL</h1>
         <p class="auth-subtitle">
-          使用邮箱创建或登录你的图片审核空间账户。
+          使用你的账号密码进入图片审核空间。<br />
+          （当前 Demo 账号：3415470347@qq.com / ylf012900）
         </p>
 
         <form class="auth-form" id="auth-form">
+          <!-- 账号（邮箱） -->
           <div>
-            <label class="input-label" for="email">邮箱 Email</label>
+            <label class="input-label" for="email">账号 / 邮箱</label>
             <input
               id="email"
               type="email"
               class="input-field"
-              placeholder="you@example.com"
+              placeholder="3415470347@qq.com"
+              autocomplete="username"
             />
           </div>
+
+          <!-- 密码 -->
           <div>
-            <label class="input-label" for="password">密码 Password</label>
+            <label class="input-label" for="password">密码</label>
             <input
               id="password"
               type="password"
               class="input-field"
-              placeholder="至少 8 位字符"
+              placeholder="ylf012900"
+              autocomplete="current-password"
             />
           </div>
 
-          <!-- 简单错误提示占位，不实现逻辑 -->
+          <!-- 错误提示区域（默认隐藏） -->
           <div id="auth-error" class="input-error" style="display: none">
-            这里是错误提示区域（如：邮箱或密码不正确）。
+            账号或密码不正确，请检查后重试。
           </div>
 
+          <!-- 登录按钮 -->
           <button type="submit" class="button button-primary" id="login-btn">
-            登录 / 注册
+            登录
           </button>
         </form>
 
         <div class="auth-footer">
-          <span>首次使用 LOONOOL？直接填邮箱和密码即可注册。</span>
+          <span style="font-size: 12px">
+            当前为本地演示登录，仅校验固定账号密码，不连接真实后台。
+          </span>
         </div>
       </div>
     </main>
 
+    <!-- 登录逻辑 -->
     <script src="js/login.js"></script>
   </body>
 </html>
