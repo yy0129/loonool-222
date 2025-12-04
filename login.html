@@ -1,58 +1,156 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>LOONOOL · 登录 / 注册</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <title>登录 / 注册 - LOONOOL</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: #020617;
+      border-radius: 16px;
+      padding: 32px 28px;
+      width: 360px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+    label {
+      font-size: 13px;
+      color: #e5e7eb;
+      display: block;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    input:focus {
+      border-color: #22c55e;
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
+    }
+    .field {
+      margin-bottom: 16px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+    button {
+      flex: 1;
+      border-radius: 999px;
+      border: none;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+    }
+    #btnLogin {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+    }
+    #btnSignup {
+      background: #020617;
+      color: #e5e7eb;
+      border: 1px solid #374151;
+    }
+    button:hover {
+      transform: translateY(-1px);
+    }
+    #btnLogin:hover {
+      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.45);
+    }
+    #btnSignup:hover {
+      background: #030712;
+    }
+    .hint {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+    #message {
+      font-size: 13px;
+      min-height: 18px;
+      margin-top: 4px;
+    }
+    .msg-error {
+      color: #f97373;
+    }
+    .msg-success {
+      color: #4ade80;
+    }
+    .top-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+  </style>
 </head>
 <body>
+  <div class="card">
+    <div class="top-badge">LOONOOL · 图片审核空间</div>
+    <h1>登录你的工作空间</h1>
+    <div class="subtitle">使用邮箱 + 密码。注册成功后下次直接登录即可。</div>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">
-      <span class="logo-mark">L</span>
-      <span class="logo-text">LOONOOL · 登录 / 注册</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">首页 Home</a>
-      <a href="help.html" class="nav-link">帮助中心 Help</a>
-    </nav>
-  </div>
-</header>
-
-<main class="auth-container">
-  <div class="auth-card">
-    <h1 class="auth-title">登录 / 注册 Login / Sign Up</h1>
-    <p class="page-desc">
-      使用 Supabase Auth 的邮箱 + 密码登录 / 注册。注册成功后，请先在邮箱中完成验证，再返回登录。
-    </p>
-
-    <form class="auth-form" onsubmit="return false;">
-      <label>
-        邮箱 Email
-        <input id="auth-email" type="email" placeholder="you@example.com" />
-      </label>
-      <label>
-        密码 Password
-        <input id="auth-password" type="password" placeholder="至少 6 位密码" />
-      </label>
-
-      <div id="auth-error" class="error-msg">
-        <!-- 错误提示区域 -->
+    <form id="authForm">
+      <div class="field">
+        <label for="email">邮箱 Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required />
+      </div>
+      <div class="field">
+        <label for="password">密码 Password（至少 6 位）</label>
+        <input id="password" type="password" placeholder="••••••••" required />
       </div>
 
-      <div style="display:flex;gap:8px;margin-top:4px;align-items:center;flex-wrap:wrap;">
-        <button id="btn-login" type="button" class="btn btn-accent">
-          登录 Login
-        </button>
-        <button id="btn-signup" type="button" class="btn btn-ghost">
-          注册 Sign Up
-        </button>
+      <div class="btn-row">
+        <button id="btnLogin" type="button">登录</button>
+        <button id="btnSignup" type="button">注册</button>
       </div>
+
+      <div class="hint">
+        · 第一次使用？填写邮箱 + 密码后点「注册」<br />
+        · 已经有账号？直接点「登录」进入「我的空间」<br />
+      </div>
+
+      <div id="message"></div>
     </form>
   </div>
-</main>
 
-<script type="module" src="js/main.js"></script>
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- 你的 supabase-client.js，里面已经写好 createClient -->
+  <script src="supabase-client.js"></script>
+  <!-- 当前页面的逻辑 -->
+  <script src="login.js"></script>
 </body>
 </html>
