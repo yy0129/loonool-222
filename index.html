@@ -1,91 +1,204 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LOONOOL · 图片审核空间</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
-<script>
-  // 页面加载完就给按钮加点击事件
-  window.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("createSpaceBtn");
-    if (!btn) return;
-
-    btn.addEventListener("click", () => {
-      // 统一跳到登录/注册页，登录成功后再回到 My Spaces
-      window.location.href = "login.html?next=my-spaces.html";
-    });
-  });
-</script>
-</body>
-</html>
-
   <body>
-    <!-- ========== 顶部导航栏 ========== -->
-   <header class="navbar">
-  <div class="nav-left">
-    <div class="logo"></div>
-    <span class="brand-text">LOONOOL · 图片审核空间</span>
-  </div>
-
-  <nav class="nav-right">
-    <a href="login.html" class="nav-link">Login</a>
-    <a href="login.html" class="nav-link">Sign Up</a>
-    <a href="help.html" class="nav-link">Help</a>
-  </nav>
-</header>
-
-
-    <!-- ========== 主视觉区域 ========== -->
-    <section class="hero">
-      <h1 class="hero-title">用 LOONOOL 审核你的图片，做出可放心使用的视觉决策。</h1>
-      <p class="hero-subtitle">
-        上传图片 · 团队一起看 · AI 提供证据 · 一张图被确认可用
-      </p>
-
-      <button id="createSpaceBtn" class="btn-primary">
-        创建图片审核空间（Create Review Space）
-      </button>
-    </section>
-
-    <!-- ========== 功能简介区域 ========== -->
-    <section class="features">
-      <div class="feature-card">
-        <h3>多图对比</h3>
-        <p>快速对比同一主题的多张图，理解差异与风险点。</p>
+    <!-- 顶部导航 -->
+    <header class="site-header">
+      <div class="site-header-inner">
+        <div class="nav-logo">
+          <div class="nav-logo-mark"></div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">LOONOOL</span>
+            <span class="nav-logo-subtitle">图片审核空间</span>
+          </div>
+        </div>
+        <nav class="nav-actions">
+          <a href="login.html" class="button button-ghost button-sm">Login</a>
+          <a href="login.html" class="button button-secondary button-sm">
+            Sign Up
+          </a>
+          <a href="help.html" class="button button-ghost button-sm">Help</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="feature-card">
-        <h3>团队讨论</h3>
-        <p>邀请团队成员发表评论，让审核过程更透明。</p>
+    <main class="page home-page">
+      <div class="page-container">
+        <!-- 主视觉区域 -->
+        <section class="home-hero">
+          <!-- 左侧文案 -->
+          <div class="home-hero-main">
+            <div class="badge">图片审核空间 · 团队协作 · AI 证据</div>
+
+            <h1 class="home-hero-title">
+              用 LOONOOL 审核你的图片，<br />
+              做出可放心使用的视觉决策。
+            </h1>
+
+            <p class="home-hero-subtitle">
+              上传图片 · 团队一起看 · AI 提供证据 · 一张图被确认可用。<br />
+              在一个空间里完成从「候选图片对比」到「最终图片确定」的完整流程。
+            </p>
+
+            <div class="home-hero-actions">
+              <button
+                id="create-space-btn"
+                class="button button-primary button-lg"
+              >
+                创建图片审核空间
+              </button>
+              <a href="my-spaces.html" class="button button-secondary button-lg">
+                查看我的空间
+              </a>
+            </div>
+
+            <p class="home-hero-note">
+              未登录用户点击「创建图片审核空间」时，将先跳转到 Login / Sign Up。
+            </p>
+          </div>
+
+          <!-- 右侧展示卡片（假数据） -->
+          <div class="home-hero-side">
+            <div class="home-hero-card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 10px;
+                "
+              >
+                <div style="font-size: 12px; opacity: 0.8">
+                  审核空间 · 品牌改版主视觉
+                </div>
+                <div
+                  class="badge"
+                  style="background: #0f172a; color: #e5e7eb; font-size: 10px"
+                >
+                  Active
+                </div>
+              </div>
+
+              <div
+                style="
+                  font-size: 20px;
+                  font-weight: 600;
+                  margin-bottom: 8px;
+                  line-height: 1.4;
+                "
+              >
+                Task 2 · KV 主视觉审核
+              </div>
+              <div
+                style="
+                  font-size: 12px;
+                  opacity: 0.85;
+                  margin-bottom: 14px;
+                  line-height: 1.6;
+                "
+              >
+                4 张候选图片 · 3 条 Evidence · 已选定 Final 图。<br />
+                已完成风格、风险、平台规则的多维度检查。
+              </div>
+
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(4, minmax(0, 1fr));
+                  gap: 6px;
+                  margin-bottom: 12px;
+                "
+              >
+                <div
+                  style="
+                    height: 52px;
+                    border-radius: 10px;
+                    background: rgba(15, 23, 42, 0.9);
+                  "
+                ></div>
+                <div
+                  style="
+                    height: 52px;
+                    border-radius: 10px;
+                    background: rgba(79, 70, 229, 0.85);
+                  "
+                ></div>
+                <div
+                  style="
+                    height: 52px;
+                    border-radius: 10px;
+                    background: rgba(59, 130, 246, 0.9);
+                  "
+                ></div>
+                <div
+                  style="
+                    height: 52px;
+                    border-radius: 10px;
+                    background: rgba(148, 163, 184, 0.9);
+                  "
+                ></div>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 11px;
+                  opacity: 0.8;
+                "
+              >
+                <span>Evidence：风险 · 风格 · 市场 · 外部规则</span>
+                <span>成员：3 人在线</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 功能简介 -->
+        <section class="home-feature-section">
+          <h2 class="home-feature-section-title">LOONOOL 能帮你做什么？</h2>
+          <div class="home-feature-grid">
+            <div class="home-feature-item">
+              <strong>多图对比（图片审核区）</strong><br />
+              快速摆在一起比图，理解每张图的差异与潜在风险。
+            </div>
+            <div class="home-feature-item">
+              <strong>团队讨论（Discussion）</strong><br />
+              把所有评论集中在一个任务下，不再散落在群聊和邮件里。
+            </div>
+            <div class="home-feature-item">
+              <strong>审核证据链（Evidence）</strong><br />
+              规则文档、截图、AI 分析，一起沉淀成可追溯的证据链。
+            </div>
+            <div class="home-feature-item">
+              <strong>AI 分析工具（Analysis Tools）</strong><br />
+              相似度、风险点、风格方向，由 AI 提供辅助判断。
+            </div>
+            <div class="home-feature-item">
+              <strong>导出结果（Export）</strong><br />
+              一键导出 Final 图和关键信息，交付给品牌 / 法务 / 代理商。
+            </div>
+          </div>
+        </section>
+
+        <!-- 底部 -->
+        <footer class="site-footer">
+          <div>© LOONOOL · 图片审核空间</div>
+          <div class="site-footer-links">
+            <a href="help.html">帮助中心</a>
+            <a href="#">隐私</a>
+            <a href="#">条款</a>
+            <a href="#">联系我们</a>
+          </div>
+        </footer>
       </div>
+    </main>
 
-      <div class="feature-card">
-        <h3>审核证据链（Evidence）</h3>
-        <p>记录每一张图片的所有依据与来源，便于追溯。</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>AI 分析工具（Analysis Tools）</h3>
-        <p>AI 自动生成相似度、风险点、参考证据等分析。</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>导出结果（Export）</h3>
-        <p>一键导出审核结果，让团队快速使用。</p>
-      </div>
-    </section>
-
-    <!-- ========== 页脚 ========== -->
-    <footer class="footer">
-      <a href="#">帮助中心</a>
-      <a href="#">隐私政策</a>
-      <a href="#">服务条款</a>
-      <a href="#">联系我们</a>
-    </footer>
-
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
