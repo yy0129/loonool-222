@@ -1,156 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>登录 / 注册 - LOONOOL</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-    }
-    .card {
-      background: #020617;
-      border-radius: 16px;
-      padding: 32px 28px;
-      width: 360px;
-      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-    }
-    h1 {
-      margin: 0 0 4px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .subtitle {
-      font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 24px;
-    }
-    label {
-      font-size: 13px;
-      color: #e5e7eb;
-      display: block;
-      margin-bottom: 6px;
-    }
-    input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      color: #e5e7eb;
-      font-size: 14px;
-      outline: none;
-      box-sizing: border-box;
-    }
-    input:focus {
-      border-color: #22c55e;
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
-    }
-    .field {
-      margin-bottom: 16px;
-    }
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 8px;
-      margin-bottom: 12px;
-    }
-    button {
-      flex: 1;
-      border-radius: 999px;
-      border: none;
-      padding: 10px 0;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
-    }
-    #btnLogin {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #022c22;
-      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
-    }
-    #btnSignup {
-      background: #020617;
-      color: #e5e7eb;
-      border: 1px solid #374151;
-    }
-    button:hover {
-      transform: translateY(-1px);
-    }
-    #btnLogin:hover {
-      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.45);
-    }
-    #btnSignup:hover {
-      background: #030712;
-    }
-    .hint {
-      font-size: 12px;
-      color: #6b7280;
-      line-height: 1.5;
-    }
-    #message {
-      font-size: 13px;
-      min-height: 18px;
-      margin-top: 4px;
-    }
-    .msg-error {
-      color: #f97373;
-    }
-    .msg-success {
-      color: #4ade80;
-    }
-    .top-badge {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #9ca3af;
-      margin-bottom: 6px;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <div class="top-badge">LOONOOL · 图片审核空间</div>
-    <h1>登录你的工作空间</h1>
-    <div class="subtitle">使用邮箱 + 密码。注册成功后下次直接登录即可。</div>
-
-    <form id="authForm">
-      <div class="field">
-        <label for="email">邮箱 Email</label>
-        <input id="email" type="email" placeholder="you@example.com" required />
+  <head>
+    <meta charset="UTF-8" />
+    <title>登录 · LOONOOL 图片审核空间</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <div class="nav-logo">
+          <div class="nav-logo-mark"></div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">LOONOOL</span>
+            <span class="nav-logo-subtitle">图片审核空间</span>
+          </div>
+        </div>
+        <nav class="nav-actions">
+          <a href="index.html" class="button button-ghost button-sm">Home</a>
+          <a href="help.html" class="button button-ghost button-sm">Help</a>
+        </nav>
       </div>
-      <div class="field">
-        <label for="password">密码 Password（至少 6 位）</label>
-        <input id="password" type="password" placeholder="••••••••" required />
+    </header>
+
+    <main class="auth-page">
+      <div class="auth-card">
+        <h1 class="auth-title">登录 / 注册</h1>
+        <p class="auth-subtitle">
+          使用邮箱创建或登录你的图片审核空间账户。
+        </p>
+
+        <form class="auth-form" id="auth-form">
+          <div>
+            <label class="input-label" for="email">邮箱 Email</label>
+            <input
+              id="email"
+              type="email"
+              class="input-field"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label class="input-label" for="password">密码 Password</label>
+            <input
+              id="password"
+              type="password"
+              class="input-field"
+              placeholder="至少 8 位字符"
+            />
+          </div>
+
+          <!-- 简单错误提示占位，不实现逻辑 -->
+          <div id="auth-error" class="input-error" style="display: none">
+            这里是错误提示区域（如：邮箱或密码不正确）。
+          </div>
+
+          <button type="submit" class="button button-primary" id="login-btn">
+            登录 / 注册
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <span>首次使用 LOONOOL？直接填邮箱和密码即可注册。</span>
+        </div>
       </div>
+    </main>
 
-      <div class="btn-row">
-        <button id="btnLogin" type="button">登录</button>
-        <button id="btnSignup" type="button">注册</button>
-      </div>
-
-      <div class="hint">
-        · 第一次使用？填写邮箱 + 密码后点「注册」<br />
-        · 已经有账号？直接点「登录」进入「我的空间」<br />
-      </div>
-
-      <div id="message"></div>
-    </form>
-  </div>
-
-  <!-- Supabase SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- 你的 supabase-client.js，里面已经写好 createClient -->
-  <script src="supabase-client.js"></script>
-  <!-- 当前页面的逻辑 -->
-  <script src="login.js"></script>
-</body>
+    <script src="js/login.js"></script>
+  </body>
 </html>
