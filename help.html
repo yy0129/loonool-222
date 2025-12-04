@@ -1,154 +1,140 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <title>帮助中心 · LOONOOL 图片审核空间</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <!-- 顶部导航 -->
-    <header class="site-header">
-      <div class="site-header-inner">
-        <div class="nav-logo">
-          <div class="nav-logo-mark"></div>
-          <div class="nav-logo-text">
-            <span class="nav-logo-title">LOONOOL</span>
-            <span class="nav-logo-subtitle">图片审核空间</span>
+<head>
+  <meta charset="UTF-8">
+  <title>帮助中心 · LOONOOL 图片审核空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-mark"></div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">LOONOOL</span>
+          <span class="nav-logo-subtitle">图片审核空间</span>
+        </div>
+      </div>
+
+      <nav class="nav-actions">
+        <a href="index.html" class="button button-ghost button-sm">Home</a>
+        <a href="my-spaces.html" class="button button-ghost button-sm">My Spaces</a>
+        <a href="login.html" class="button button-ghost button-sm">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 页面主体 -->
+  <main class="page">
+    <div class="help-layout">
+
+      <!-- 左侧介绍区 -->
+      <section class="help-intro">
+        <h1 class="help-title">帮助中心</h1>
+        <p class="help-subtitle">LOONOOL · 图片审核空间 · 常见问题 FAQ</p>
+
+        <div class="help-highlight">
+          <div class="help-highlight-title">第一次使用 LOONOOL？</div>
+          <div class="help-highlight-body">
+            使用流程建议：<br>
+            ① 登录帐号 → ② 创建图片审核空间 → ③ 上传候选图片 → ④ 添加证据 & AI 工具 → ⑤ 选出 Final 图并导出结果。
           </div>
         </div>
-        <nav class="nav-actions">
-          <a href="index.html" class="button button-ghost button-sm">Home</a>
-          <a href="my-spaces.html" class="button button-ghost button-sm">
-            My Spaces
-          </a>
-          <a href="login.html" class="button button-ghost button-sm">Login</a>
-        </nav>
-      </div>
-    </header>
+      </section>
 
-    <main class="page">
-      <div class="help-layout">
-        <!-- 左侧介绍 -->
-        <section class="help-intro">
-          <h1 class="help-title">帮助中心</h1>
-          <p class="help-subtitle">
-            LOONOOL · 图片审核空间 · 常见问题 FAQ
-          </p>
-          <div class="help-highlight">
-            <div class="help-highlight-title">第一次用 LOONOOL，怎么开始？</div>
-            <div class="help-highlight-body">
-              建议路径：<br />
-              ① 登录 / 注册账号 → ② 在首页创建一个图片审核空间 →
-              ③ 在空间内上传候选图片 → ④ 使用 Evidence & Tools 做决策 →
-              ⑤ 选出 Final 图并导出结果。
-            </div>
-          </div>
-        </section>
+      <!-- 右侧 FAQ 折叠列表 -->
+      <section>
+        <div class="help-faq-list">
 
-        <!-- 右侧 FAQ（点击折叠） -->
-        <section>
-          <div class="help-faq-list">
-            <!-- Q1 -->
-            <div class="help-faq-item">
-              <button class="help-faq-header" type="button">
-                <span class="help-faq-question">什么是图片审核空间？</span>
-                <span class="help-faq-toggle-icon">+</span>
-              </button>
-              <div class="help-faq-answer">
-                <div class="help-faq-answer-inner">
-                  图片审核空间（Space）是一个专门用于审核图片的协作空间。
-                  每个空间可以包含多个任务（Task），每个任务内可以放多张候选图片、讨论消息、证据（Evidence）和 AI
-                  分析结果，让整个决策过程可追溯、可复盘。
-                </div>
-              </div>
-            </div>
-
-            <!-- Q2 -->
-            <div class="help-faq-item">
-              <button class="help-faq-header" type="button">
-                <span class="help-faq-question">什么是任务（Task）？</span>
-                <span class="help-faq-toggle-icon">+</span>
-              </button>
-              <div class="help-faq-answer">
-                <div class="help-faq-answer-inner">
-                  Task 是围绕一个具体主题的一组候选图片，例如「首页 KV」「电商主图」。
-                  每个 Task 下可以上传 1–6 张候选图片，团队在这个任务里进行讨论、添加 Evidence，并最终选出一张 Final
-                  图，用于真实投放或上线。
-                </div>
-              </div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="help-faq-item">
-              <button class="help-faq-header" type="button">
-                <span class="help-faq-question">
-                  为什么一个任务最多只能放 6 张图片？
-                </span>
-                <span class="help-faq-toggle-icon">+</span>
-              </button>
-              <div class="help-faq-answer">
-                <div class="help-faq-answer-inner">
-                  为了让讨论更聚焦，每个 Task 最多支持 6 张候选图片。
-                  当你继续上传第 7 张时，系统会自动为你创建一个新的 Task，并把新图片放到新的 Task
-                  中，避免一个任务里图片过多、难以做出明确结论。
-                </div>
-              </div>
-            </div>
-
-            <!-- Q4 -->
-            <div class="help-faq-item">
-              <button class="help-faq-header" type="button">
-                <span class="help-faq-question">
-                  什么是 Evidence / Add Evidence / Analysis Tools？
-                </span>
-                <span class="help-faq-toggle-icon">+</span>
-              </button>
-              <div class="help-faq-answer">
-                <div class="help-faq-answer-inner">
-                  Evidence 是你在决策过程中产生的所有依据，例如平台规则
-                  PDF、竞品截图、AI 分析结果等。<br /><br />
-                  Add Evidence 是上传这些依据的入口，可以上传图片、PDF / 文档，也可以添加外部链接。<br /><br />
-                  Analysis Tools 是内置 AI 工具入口，例如风险扫描、风格分析、市场案例等。工具执行后的结果，可以一键保存为
-                  Evidence。
-                </div>
-              </div>
-            </div>
-
-            <!-- Q5 -->
-            <div class="help-faq-item">
-              <button class="help-faq-header" type="button">
-                <span class="help-faq-question">如何导出结果？</span>
-                <span class="help-faq-toggle-icon">+</span>
-              </button>
-              <div class="help-faq-answer">
-                <div class="help-faq-answer-inner">
-                  在审核空间左侧 Sidebar 中，点击「导出结果（Export
-                  Results）」按钮，系统会收集当前空间所有已选定 Final 图的任务，将对应图片打包为 zip
-                  下载。后续版本会逐步支持带摘要说明和元数据的导出格式。
-                </div>
-              </div>
-            </div>
-
-            <!-- Q6 -->
-            <div class="help-faq-item">
-              <button class="help-faq-header" type="button">
-                <span class="help-faq-question">如何分享证据给外部？</span>
-                <span class="help-faq-toggle-icon">+</span>
-              </button>
-              <div class="help-faq-answer">
-                <div class="help-faq-answer-inner">
-                  每条 Evidence 都可以生成一个在线预览链接（Evidence Preview）。
-                  你可以将链接分享给品牌方、法务或代理商，对方可以在不登录的情况下查看单条 Evidence
-                  的内容；如果想查看完整证据链，则需要进入对应的 Space / Task。
-                </div>
+          <!-- Q1 -->
+          <div class="help-faq-item">
+            <button class="help-faq-header">
+              <span class="help-faq-question">什么是图片审核空间？</span>
+              <span class="help-faq-toggle-icon">+</span>
+            </button>
+            <div class="help-faq-answer">
+              <div class="help-faq-answer-inner">
+                图片审核空间（Space）是一个协作环境，可以在多个任务中上传候选图片、讨论、收集 Evidence，并最终做出可追溯的视觉决策。
               </div>
             </div>
           </div>
-        </section>
-      </div>
-    </main>
 
-    <script src="js/help.js"></script>
-  </body>
+          <!-- Q2 -->
+          <div class="help-faq-item">
+            <button class="help-faq-header">
+              <span class="help-faq-question">什么是任务（Task）？</span>
+              <span class="help-faq-toggle-icon">+</span>
+            </button>
+            <div class="help-faq-answer">
+              <div class="help-faq-answer-inner">
+                Task 是围绕某一主题的图片审核集合，例如 “首页 KV”、“产品主图”。每个 Task 支持上传 1–6 张候选图并最终选定 Final 图。
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="help-faq-item">
+            <button class="help-faq-header">
+              <span class="help-faq-question">为什么一个任务最多只能放 6 张图片？</span>
+              <span class="help-faq-toggle-icon">+</span>
+            </button>
+            <div class="help-faq-answer">
+              <div class="help-faq-answer-inner">
+                为让讨论保持聚焦，一个任务最多容纳 6 张图片。超过后系统自动创建新任务，避免过量图片导致决策困难。
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="help-faq-item">
+            <button class="help-faq-header">
+              <span class="help-faq-question">什么是 Evidence / Add Evidence / Analysis Tools？</span>
+              <span class="help-faq-toggle-icon">+</span>
+            </button>
+            <div class="help-faq-answer">
+              <div class="help-faq-answer-inner">
+                Evidence 是用于做决策的依据（如平台规则、竞品截图、AI 分析结果）。<br><br>
+                Add Evidence 用于上传图片、PDF 或外部链接。<br><br>
+                Analysis Tools 是一键执行的 AI 工具（如风险扫描、风格分析），结果可保存为 Evidence。
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="help-faq-item">
+            <button class="help-faq-header">
+              <span class="help-faq-question">如何导出结果？</span>
+              <span class="help-faq-toggle-icon">+</span>
+            </button>
+            <div class="help-faq-answer">
+              <div class="help-faq-answer-inner">
+                点击左侧「Export Results」，系统会将所有含 Final 图的任务打包为 zip，供下载使用。
+              </div>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="help-faq-item">
+            <button class="help-faq-header">
+              <span class="help-faq-question">如何分享证据给外部？</span>
+              <span class="help-faq-toggle-icon">+</span>
+            </button>
+            <div class="help-faq-answer">
+              <div class="help-faq-answer-inner">
+                每条 Evidence 可生成可公开访问的预览链接（Evidence Preview），用于分享给客户/法务等第三方。
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/help.js"></script>
+</body>
 </html>
