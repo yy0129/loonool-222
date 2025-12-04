@@ -1,42 +1,88 @@
+<tbody>
+  <tr data-space-id="space-001">
+    <td class="spaces-col-name">
+      <button class="link-button space-link" data-space-id="space-001">
+        新品包装设计审核 · 2025-Q1
+      </button>
+    </td>
+    <td class="spaces-col-owner">Li Mei</td>
+    <td class="spaces-col-tasks">8</td>
+    <td class="spaces-col-updated">2025-12-01 15:32</td>
+    <td class="spaces-col-action">
+      <button
+        class="btn-ghost enter-space-btn"
+        data-space-id="space-001"
+      >
+        进入空间
+      </button>
+    </td>
+  </tr>
+  <!-- 其他 Space 同理 -->
+</tbody>
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>LOONOOL · 我的空间 My Spaces</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>我的空间 · LOONOOL 图片审核空间</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 顶部导航栏（与首页保持一致） -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="logo"></div>
+        <span class="brand-text">LOONOOL · 图片审核空间</span>
+      </div>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">
-      <span class="logo-mark">L</span>
-      <span class="logo-text">LOONOOL · 我的空间</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">首页 Home</a>
-      <a href="help.html" class="nav-link">帮助中心 Help</a>
-    </nav>
-  </div>
-</header>
+      <nav class="nav-right">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="login.html" class="nav-link">Sign Up</a>
+        <a href="help.html" class="nav-link">Help</a>
+      </nav>
+    </header>
 
-<main class="page-main">
-  <div class="spaces-container">
-    <h1 class="page-title">我的空间 My Spaces</h1>
-    <p class="page-desc">
-      从 Supabase 中读取你作为 Owner 创建的所有图片审核空间。点击空间名称或「进入空间」进入 Review Space。
-    </p>
+    <!-- 页面主体 -->
+    <main class="page-container">
+      <!-- 顶部标题 -->
+      <section class="page-header">
+        <h1 class="page-title">我的空间 My Spaces</h1>
+        <p class="page-subtitle">
+          查看并进入你参与的所有图片审核空间（Review Space）。
+        </p>
+      </section>
 
-    <!-- JS 会把 Space 列表插入到这里 -->
-    <div id="spaces-list" class="spaces-list"></div>
+      <!-- 列表 + 空状态容器 -->
+      <section class="spaces-section">
+        <div class="spaces-card">
+          <div class="spaces-card-header">
+            <div>
+              <div class="spaces-card-title">空间列表 Space List</div>
+              <div class="spaces-card-desc">
+                Space Name · Owner · Task Count · Last Updated
+              </div>
+            </div>
 
-    <!-- 空状态 -->
-    <div id="spaces-empty" class="empty-state" style="display:none;margin-top:24px;">
-      你还没有任何审核空间，可以先回到首页创建第一个图片审核空间。
-    </div>
-  </div>
-</main>
+            <!-- 未来扩展：新建空间入口 -->
+            <button class="btn-secondary" id="createSpaceFromList">
+              创建新的审核空间
+            </button>
+          </div>
 
-<script type="module" src="js/main.js"></script>
-</body>
+          <!-- 这里由 JS 根据有无数据渲染：表格 / 空状态 -->
+          <div id="spacesContainer"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 底部 Footer 区 -->
+    <footer class="footer">
+      <a href="help.html">帮助中心</a>
+      <a href="#">隐私政策</a>
+      <a href="#">服务条款</a>
+      <a href="#">联系我们</a>
+    </footer>
+
+    <script src="my-spaces.js"></script>
+  </body>
 </html>
