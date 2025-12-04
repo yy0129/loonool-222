@@ -1,25 +1,32 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const faqList = document.getElementById("faqList");
-  if (!faqList) return;
+// js/help.js
 
-  faqList.addEventListener("click", (event) => {
-    const btn = event.target.closest(".faq-question");
-    if (!btn) return;
+document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll(".help-faq-item");
 
-    const item = btn.closest(".faq-item");
-    if (!item) return;
+  items.forEach((item) => {
+    const header = item.querySelector(".help-faq-header");
+    const answer = item.querySelector(".help-faq-answer");
 
-    // 如果已经展开，就收起；如果是收起状态，就展开
-    const isActive = item.classList.contains("active");
+    header.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
 
-    // 也可以选择「单开模式」：收起其它项
-    // const allItems = faqList.querySelectorAll(".faq-item");
-    // allItems.forEach((it) => it.classList.remove("active"));
+      // 其他全部收起
+      items.forEach((i) => {
+        if (i !== item) {
+          i.classList.remove("open");
+          const a = i.querySelector(".help-faq-answer");
+          a.style.maxHeight = "0px";
+        }
+      });
 
-    if (isActive) {
-      item.classList.remove("active");
-    } else {
-      item.classList.add("active");
-    }
+      // 当前切换展开
+      if (isOpen) {
+        item.classList.remove("open");
+        answer.style.maxHeight = "0px";
+      } else {
+        item.classList.add("open");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
   });
 });
